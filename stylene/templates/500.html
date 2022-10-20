@@ -1,0 +1,28 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'stylene/styles.css' %}">
+{% block content %}
+
+<title>Stylene</title>
+<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+
+
+<body style = "margin:0">
+
+
+<div class='header'>
+	<h1><a href='..' style="text-decoration: none; color: white">Stylene</a></h1>
+</div>
+
+<br>
+
+<div class='container'>
+	<h2>Er ging iets mis. Probeer opnieuw.</h2>
+</div>
+
+<div class='container'>
+	<div class='clips_logo'>
+		<img src="/static/clips-nl-rgb.jpg" alt="clips logo" width=400 height=80 style="vertical-align:middle;margin:50px 0px">
+	</div>
+</div>
+
+{% endblock %}

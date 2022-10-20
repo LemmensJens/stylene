@@ -1,0 +1,75 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'stylene/styles.css' %}">
+{% block content %}
+
+<title>Stylene</title>
+<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+
+
+<body style = "margin:0">
+
+
+<div class='header'>
+	<h1><a href='..' style="text-decoration: none; color: white">Stylene</a></h1>
+</div>
+
+<br>
+
+<div class="container">
+	<br>
+	<br>
+	{{gender_chart|safe}}
+	{{personality_chart|safe}}
+	{{education_chart|safe}}
+	{{age_chart|safe}}
+	<br>
+	<br>
+</div>
+
+<div class="container">
+	<br>
+	{{liwc_chart|safe}}
+	<br>
+</div>
+
+<div class="container">
+	<br>
+	{{genre_chart|safe}}
+	<br>
+</div>
+
+<div class="container">
+	<br>
+	{{author_chart|safe}}
+	<br>
+</div>
+
+<div class="container">
+	<br>
+	{{statistics_table|safe}}
+	<br>
+	<br>
+	<br>
+</div>
+
+<div class="container">
+	{{pos_table|safe}}
+	<br>
+	<br>
+	<br>
+</div>
+
+<div class="container">
+	{{punct_table|safe}}
+	<br>
+	<br>
+	<br>
+</div>
+
+<div class='container'>
+	<div class='clips_logo'>
+		<img src="/static/clips-nl-rgb.jpg" alt="clips logo" width=400 height=80 style="vertical-align:middle;margin:50px 0px">
+	</div>
+</div>
+
+{% endblock %}

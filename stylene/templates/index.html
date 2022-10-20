@@ -1,0 +1,62 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'stylene/styles.css' %}">
+{% block content %}
+
+<title>Stylene</title>
+<link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+
+
+<body style = "margin:0">
+
+
+<div class='header'>
+	<h1><a href='' style="text-decoration: none; color: white">Stylene</a></h1>
+</div>
+
+<div class='container'>
+	<br>
+	<h2>Over</h2>
+	<p>Stylene is een tool die met behulp van Natural Language Processing (NLP) de schrijfstijl van een auteur analyseert. Stylene werkt als volgt: na het uploaden van een tekst worden een reeks stylistische statistieken of "features" berekend. Vervolgens voorspellen taalmodellen op basis van deze features welk geslacht, leeftijd, opleidingsniveau en persoonlijkheid de auteur van deze tekst heeft. Tenslotte wordt bepaald tot welk genre de tekst behoord en bij welke bekende Nederlandstalige auteur de schrijfstijl van de tekst het meest aanleunt.</p>
+	<p>Stylene is ontwikkeld door CLiPS (Computational Linguistics, Psycholinguistics and Sociolinguistics Research Center), een onderzoeksgroep van Universiteit Antwerpen.</p>
+	<br>
+</div>
+
+<div class='container'>
+	<h2>Analyseer mijn schrijfstijl</h2>
+	<p>Voer hier je tekst in of upload een .txt bestand.</p>
+</div>
+
+<div class="container">
+	<form action="/results/" method="post">
+		{% csrf_token %}
+  		<input type="text" name="data" class="form-control" placeholder="Typ of plak je tekst hier" aria-label="input-text" aria-describedby="addon-wrapping">
+  		<button class="btn btn-outline-secondary" type="submit" name="run_script" id="button-addon2">Analyseer</button>
+	</form>
+	<br>
+</div>
+
+
+<div class="container">
+	<form action="/results/" method="post" enctype="multipart/form-data">
+		{% csrf_token %} 
+		<input type="file" name="data" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Drop">
+		<button class="btn btn-outline-secondary" type="submit" value=Submit name="run_script" id="inputGroupFileAddon04">Analyseer</button>
+	</form>
+	<br>
+</div>
+
+<div class='container'>
+	<h2>Contact</h2>
+	<p>Vragen of opmerkingen? Laat het ons weten:</p>
+	<p><a href="mailto:jens.lemmens@uantwerpen.be">Jens Lemmens</a><br>
+	<a href="mailto:walter.daelemans@uantwerpen.be">Walter Daelemans</a></p>
+	<br>
+</div>
+
+<div class='container'>
+	<div class='clips_logo'>
+		<img src="/static/clips-nl-rgb.jpg" alt="clips logo" width=400 height=80 style="vertical-align:middle;margin:50px 0px">
+	</div>
+</div>
+
+{% endblock %}

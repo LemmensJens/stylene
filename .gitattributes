@@ -1,0 +1,5 @@
+stylene/author_detector.sav filter=lfs diff=lfs merge=lfs -text
+stylene/education_classifier.sav filter=lfs diff=lfs merge=lfs -text
+stylene/gender_classifier.sav filter=lfs diff=lfs merge=lfs -text
+stylene/genre_detector.sav filter=lfs diff=lfs merge=lfs -text
+stylene/age_classifier.sav filter=lfs diff=lfs merge=lfs -text
