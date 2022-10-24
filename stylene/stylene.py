@@ -180,7 +180,7 @@ def stylene(inpt):
 
         fig = px.line_polar(new_df, r=df.iloc[0].to_list(), theta=theta, line_close=True, title='Onderwerp', color_discrete_sequence=['rgb(0,46,101)'])
         fig.update_traces(fill='toself')
-        fig.update_layout(title_text='Onderwerp', title_x=0.5, title_font=dict(size=32), title_font_family='Trebuchet MS', font_family='Trebuchet MS', font=dict(color='#002e65'))
+        fig.update_layout(title_text='Figuur 2: Aantal gevonden woorden per onderwerp.', title_x=0.5, title_font=dict(size=12), title_font_family='Trebuchet MS', font_family='Trebuchet MS', font=dict(color='#002e65'))
         return fig
 
     def PosTable(df):
@@ -189,7 +189,7 @@ def stylene(inpt):
         transposed_df = transposed_df.rename(columns={0: 'Relatieve hoeveelheid'})
         transposed_df['Woordsoort'] = transposed_df.index
         transposed_df = transposed_df[transposed_df['Relatieve hoeveelheid']!=0]
-        transposed_df = transposed_df.sort_values(by=['Relatieve hoeveelheid'])
+        transposed_df = transposed_df.sort_values(by=['Relatieve hoeveelheid'], ascending=False)
 
         #generate table
         cell_height = 24
@@ -212,9 +212,9 @@ def stylene(inpt):
         ])
 
         fig.update_layout(
-            title_text='Woordsoorten', 
+            title_text='Figuur 6: Relatieve hoeveelheid per woordsoort.', 
             title_x=0.5, 
-            title_font=dict(size=32), 
+            title_font=dict(size=12), 
             title_font_family='Trebuchet MS',
             margin=dict(l=0, r=0, t=50, b=0),
             height=cell_height*n_rows+100
@@ -229,7 +229,7 @@ def stylene(inpt):
         transposed_df['Leesteken'] = transposed_df.index
         transposed_df = transposed_df[transposed_df['Relatieve hoeveelheid']!=0]
         transposed_df = transposed_df[transposed_df['Relatieve hoeveelheid']!=0]
-        transposed_df = transposed_df.sort_values(by=['Relatieve hoeveelheid'])
+        transposed_df = transposed_df.sort_values(by=['Relatieve hoeveelheid'], ascending=False)
 
         cell_height=24
         n_rows=len(transposed_df)
@@ -247,9 +247,9 @@ def stylene(inpt):
             ))])
 
             fig.update_layout(
-                title_text='Leestekens', 
+                title_text='Figuur 7: Relatieve hoeveelheid per leesteken (in verhouding tot het totaal aantal karakters).', 
                 title_x=0.5,
-                title_font=dict(size=32), 
+                title_font=dict(size=12), 
                 title_font_family='Trebuchet MS',
                 margin=dict(l=0, r=0, t=50, b=0),
                 height=cell_height*n_rows+100
@@ -278,9 +278,9 @@ def stylene(inpt):
         ])
 
         fig.update_layout(
-            title_text='Leestekens', 
+            title_text='Figuur 7: Relatieve hoeveelheid per leesteken (in verhouding tot het totaal aantal karakters).',  
             title_x=0.5, 
-            title_font=dict(size=32), 
+            title_font=dict(size=12), 
             title_font_family='Trebuchet MS',
             margin=dict(l=0, r=0, t=50, b=0),
             height=cell_height*n_rows+100
@@ -316,9 +316,9 @@ def stylene(inpt):
         ])
 
         fig.update_layout(
-            title_text='Statistieken', 
+            title_text='Figuur 5: Algemene statistieken.', 
             title_x=0.5,
-            title_font=dict(size=32), 
+            title_font=dict(size=12), 
             title_font_family='Trebuchet MS',
             margin=dict(l=0, r=0, t=50, b=0),
             height=cell_height*n_rows+100
@@ -351,7 +351,7 @@ def stylene(inpt):
     def GenreSpider(df):
         fig = px.line_polar(df, r=df.iloc[0].to_list(), theta=df.columns, line_close=True, title='Tekstgenre', color_discrete_sequence=['rgb(0,46,101)'])
         fig.update_traces(fill='toself')
-        fig.update_layout(title_text='Tekstsoort', title_x=0.5, title_font=dict(size=32), title_font_family='Trebuchet MS', font_family='Trebuchet MS', font=dict(color='rgb(0,46,101)'))
+        fig.update_layout(title_text='Figuur 3: Voorspelde kans per tekstgenre.', title_x=0.5, title_font=dict(size=12), title_font_family='Trebuchet MS', font_family='Trebuchet MS', font=dict(color='rgb(0,46,101)'))
         return fig
 
     genre_df = predict_genre(text)
@@ -420,7 +420,7 @@ def stylene(inpt):
 
             fig.update_layout(
                 title_x=0.05,
-                title_font=dict(size=32), 
+                title_font=dict(size=12), 
                 title_font_family='Trebuchet MS', 
                 barmode='stack',
                 paper_bgcolor='rgba(0,0,0,0)',
@@ -433,9 +433,9 @@ def stylene(inpt):
             
             if name=='gender':
                 fig.update_layout(
-                    title_text='Auteurskenmerken', 
+                    title_text='Figuur 1: Voorspelde auteurskenmerken.', 
                     title_x=0.5, 
-                    title_font=dict(size=32), 
+                    title_font=dict(size=12, color='#002e65'), 
                     title_font_family='Trebuchet MS',
                     )
 
@@ -482,7 +482,7 @@ def stylene(inpt):
 
         fig.update_layout(
             title_x=0.05,
-            title_font=dict(size=32), 
+            title_font=dict(size=12), 
             title_font_family='Trebuchet MS', 
             barmode='stack',
             paper_bgcolor='rgba(0,0,0,0)',
@@ -531,16 +531,16 @@ def stylene(inpt):
             r=df.iloc[0].to_list(), 
             theta=df.columns, 
             line_close=True, 
-            title='Auteursvergelijking', 
+            title='Figuur 4: Stylistisch meest aansluitende literaire schrijver.', 
             color_discrete_sequence=['rgb(0,46,101)']
             )
 
         fig.update_traces(fill='toself')
 
         fig.update_layout(
-            title_text='Auteursvergelijking', 
+            title='Figuur 4: Stylistisch meest aansluitende literaire schrijver.', 
             title_x=0.5, 
-            title_font=dict(size=32), 
+            title_font=dict(size=12), 
             title_font_family='Trebuchet MS', 
             font_family='Trebuchet MS', 
             font=dict(color='rgb(0,46,101)')
