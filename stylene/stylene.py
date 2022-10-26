@@ -361,7 +361,7 @@ def stylene(inpt):
     education_pipe = joblib.load('./stylene/education_classifier.sav')
     age_pipe = joblib.load('./stylene/age_classifier.sav')
     gender_pipe = joblib.load('./stylene/gender_classifier.sav')
-    # personality_pipe = pickle.load(open('personality_classifier.sav', 'rb'))
+    personality_pipe = joblib.load('./stylene/personality_classifier.sav')
     namedict = {'hoog': 'hoog opgeleid', 'laag': 'laag opgeleid'}
 
     # PREDICTION____________________________________________________________________________
@@ -409,7 +409,7 @@ def stylene(inpt):
                     color=color_dict[cl],
                     line=dict(color='#002e65', width=3)
                 ),
-                text=cl+f' ({df.at[0, cl]*100}%)',
+                text=cl+f' ({round(df.at[0, cl]*100, 3)}%)',
                 textposition='inside',
                 insidetextanchor='middle',
                 showlegend=False,
@@ -502,11 +502,11 @@ def stylene(inpt):
     gender_df = predict(feature_df, gender_pipe)
     education_df = predict(feature_df, education_pipe)
     age_df = predict(feature_df, age_pipe)
-    personality_dummy_df = pd.DataFrame(data={'introvert': [.5], 'extravert': [.5]})
+    personality_df = predict(feature_df, personality_pipe)
 
     gender_bar = AuthorBar('gender', gender_df)
     age_bar = AgeBar(age_df)
-    personality_bar = AuthorBar('persoonlijkheid', personality_dummy_df)
+    personality_bar = AuthorBar('persoonlijkheid', personality_df)
     education_bar = AuthorBar('opleidingsniveau', education_df)
 
 # AUTHOR STYLE COMPARISON____________________________________________________________________________________________________
