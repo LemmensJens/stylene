@@ -87,9 +87,9 @@ def stylene(inpt):
     ratio_long_words = round(n_longer_than_6_char/n_tokens, 5)
 
     stats = {
-    'Hoeveelheid woorden': n_tokens,
-    'Hoeveelheid unieke woorden': n_types,
-    'Hoeveelheid zinnen': n_sentences,
+    'Totaal aantal woorden': n_tokens,
+    'Aantal unieke woorden': n_types,
+    'Aantal zinnen': n_sentences,
     'Gemiddeld aantal karakters per woord': avg_char_per_word,
     'Gemiddeld aantal lettergrepen per woord': avg_syl_per_word,
     'Gemiddeld aantal woorden per zin': avg_t_per_s,
