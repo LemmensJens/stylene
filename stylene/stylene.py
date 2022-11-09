@@ -191,7 +191,7 @@ def stylene(inpt):
         transposed_df = df.transpose()
         transposed_df = transposed_df.rename(columns={0: 'Relatieve hoeveelheid'})
         transposed_df['Woordsoort'] = transposed_df.index
-        transposed_df = transposed_df[transposed_df['Relatieve hoeveelheid']!=0]
+        transposed_df = transposed_df[transposed_df['Relatieve hoeveelheid']!='0.0%']
         transposed_df = transposed_df.sort_values(by=['Relatieve hoeveelheid'], ascending=False)
 
         #generate table
@@ -230,8 +230,7 @@ def stylene(inpt):
         transposed_df = df.transpose()
         transposed_df = transposed_df.rename(columns={0: 'Relatieve hoeveelheid'})
         transposed_df['Leesteken'] = transposed_df.index
-        transposed_df = transposed_df[transposed_df['Relatieve hoeveelheid']!=0]
-        transposed_df = transposed_df[transposed_df['Relatieve hoeveelheid']!=0]
+        transposed_df = transposed_df[transposed_df['Relatieve hoeveelheid']!='0.0%']
         transposed_df = transposed_df.sort_values(by=['Relatieve hoeveelheid'], ascending=False)
 
         cell_height=24
@@ -329,10 +328,10 @@ def stylene(inpt):
 
         return fig
 
-    pos_df = pd.DataFrame(data={k:[round(v, 3)] for k, v in pos_profile.items()})
+    pos_df = pd.DataFrame(data={k:[str(round(v*100, 2))+'%'] for k, v in pos_profile.items()})
     pos_table = PosTable(pos_df)
 
-    punct_df = pd.DataFrame(data={k:[round(v, 5)] for k,v in punct_dist.items()})
+    punct_df = pd.DataFrame(data={k:[str(round(v*100, 2))+'%'] for k,v in punct_dist.items()})
     punct_table = PunctTable(punct_df)
 
     statistics_table = StatisticsTable(stats_df)
