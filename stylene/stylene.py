@@ -533,14 +533,14 @@ def stylene(inpt):
             r=df.iloc[0].to_list(), 
             theta=df.columns, 
             line_close=True, 
-            title='Figuur 4: Stylistisch meest aansluitende literaire schrijver.', 
+            title='Figuur 4: Stilistisch meest aansluitende literaire schrijver.', 
             color_discrete_sequence=['rgb(0,46,101)']
             )
 
         fig.update_traces(fill='toself')
 
         fig.update_layout(
-            title='Figuur 4: Stylistisch meest aansluitende literaire schrijver.', 
+            title='Figuur 4: Stilistisch meest aansluitende literaire schrijver.', 
             title_x=0.5, 
             title_font=dict(size=12), 
             title_font_family='Trebuchet MS', 
